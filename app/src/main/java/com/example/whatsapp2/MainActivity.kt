@@ -1,14 +1,11 @@
 package com.example.whatsapp2
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.text.Layout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,23 +19,16 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Search
-import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,7 +45,6 @@ class MainActivity : ComponentActivity() {
                     Greeting(
                         modifier = Modifier.padding(innerPadding)
                     )
-                    contacts(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -68,15 +57,15 @@ fun Greeting(modifier: Modifier = Modifier) {
     Column(
         Modifier
             .fillMaxSize()){
-            menu(modifier)
+            Menu()
             for (i in 1..10){
-                contacts(modifier)
+                Contacts()
             }
         }
 }
 @Preview
 @Composable
-fun menu(modifier: Modifier = Modifier){
+fun Menu(){
         Box(
             Modifier
                 .fillMaxWidth()
@@ -86,7 +75,7 @@ fun menu(modifier: Modifier = Modifier){
             Column (Modifier
                     .fillMaxWidth()
                 .fillMaxHeight(), Arrangement.Center){
-                Row(){
+                Row{
                     Box(Modifier.padding(start = 20.dp).weight(3F)) {
                         Text(stringResource(R.string.app_name), color = Color.White, fontWeight = FontWeight.Bold)
                     }
@@ -111,7 +100,7 @@ fun menu(modifier: Modifier = Modifier){
 
 @Preview
 @Composable
-fun contacts(modifier: Modifier = Modifier){
+fun Contacts(){
     Box(
         Modifier
             .height(100.dp)
